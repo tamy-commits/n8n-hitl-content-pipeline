@@ -1,0 +1,2930 @@
+{
+  "name": "Relay × Loopin — HITL Content Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Intake & Config",
+        "height": 600,
+        "width": 500,
+        "color": "#2F0D68"
+      },
+      "id": "fcb164e7-c282-438e-93a9-e0ae99655b07",
+      "name": "Layout — Intake & Config Container",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        14336,
+        4176
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Sofia Stage",
+        "height": 1360,
+        "width": 1200,
+        "color": 5
+      },
+      "id": "7cd2bf69-2cf3-458d-a8a5-72f527ea4b26",
+      "name": "Layout — Sofia Container",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        14944,
+        4176
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Marcus Stage",
+        "height": 1360,
+        "width": 1488,
+        "color": 4
+      },
+      "id": "3d82d37f-8e7b-41f3-998e-24ebb737fe7d",
+      "name": "Layout — Marcus Container",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        16176,
+        4176
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Taylor Stage",
+        "height": 1200,
+        "width": 1328,
+        "color": 7
+      },
+      "id": "5a128e0b-991e-494f-aed9-625ab569a862",
+      "name": "Layout — Taylor Container",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        17712,
+        4160
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Output Stage",
+        "height": 1192,
+        "width": 696,
+        "color": 3
+      },
+      "id": "b02d0257-570b-4436-9b59-2e5d0204dc38",
+      "name": "Layout — Output Container",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        19072,
+        4176
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Intake & Config\nBrief intake and brand context setup.",
+        "height": 140,
+        "width": 500,
+        "color": 6
+      },
+      "id": "4d330d67-a75c-4a1f-b903-e620aae66bda",
+      "name": "Label — Intake & Config",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        14336,
+        3984
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Sofia Strategy\n3 angles, human review, approved_angle handoff.",
+        "height": 140,
+        "width": 1184,
+        "color": 5
+      },
+      "id": "18318a40-5309-4ed0-a90c-ceea3535002b",
+      "name": "Label — Sofia Stage",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        14944,
+        3984
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Marcus Creative\nCreates post_copy, visual_direction and image_prompt.",
+        "height": 140,
+        "width": 1472,
+        "color": 4
+      },
+      "id": "d9fd2f84-91a8-4237-8da9-52cc12f2ded7",
+      "name": "Label — Marcus Stage",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        16176,
+        3984
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Taylor Quality Review\nFinal quality check and human decision.",
+        "height": 140,
+        "width": 1328,
+        "color": 7
+      },
+      "id": "0d3bf9bb-f3b7-469e-b782-f9681b234bb5",
+      "name": "Label — Taylor Stage",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        17680,
+        3984
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### Output & Sheets\nConsolidates and appends the final record.",
+        "height": 140,
+        "width": 696,
+        "color": 3
+      },
+      "id": "c4a80a94-4f76-433a-bff2-c8e225ee0263",
+      "name": "Label — Output Stage",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        19072,
+        3984
+      ]
+    },
+    {
+      "parameters": {
+        "formTitle": "Relay - New Content Brief",
+        "formDescription": "Submit a new content request to start the workflow. To ensure quality and brand alignment, your brief will undergo compliance review and verification. Content may be approved, revised, escalated, or rejected.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Client",
+              "placeholder": "e.g. Loopin",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Platform",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "LinkedIn"
+                  },
+                  {
+                    "option": "X (Twitter)"
+                  },
+                  {
+                    "option": "Instagram"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Content Type",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Thought leadership"
+                  },
+                  {
+                    "option": "Product announcement"
+                  },
+                  {
+                    "option": "Customer story"
+                  },
+                  {
+                    "option": "Culture post"
+                  },
+                  {
+                    "option": "Data post"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Topic Hint",
+              "placeholder": "A seed idea or theme — optional"
+            },
+            {
+              "fieldLabel": "Tone Note",
+              "placeholder": "Any specific tone or framing guidance — optional"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e823daa1-55ef-4f55-aed0-7c7566720ab0",
+      "name": "Brief Intake Form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        14448,
+        4368
+      ],
+      "webhookId": "d8f7c251-00c9-4d8b-b2ed-429f755aeca2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "brand_name",
+              "value": "Loopin",
+              "type": "string"
+            },
+            {
+              "id": "c2",
+              "name": "brand_voice",
+              "value": "Direct, confident, and human. Short sentences. Active voice. No jargon. Loopin has a clear point of view — state it plainly.",
+              "type": "string"
+            },
+            {
+              "id": "c11",
+              "name": "brand_about",
+              "value": "Loopin is a tool for remote and hybrid teams that replaces unnecessary meetings with short async video updates. Instead of scheduling a call, team members record a quick video and share it when it suits them. Teams use Loopin for standups, project updates, onboarding, feedback, handovers, and quick explanations.",
+              "type": "string"
+            },
+            {
+              "id": "c12",
+              "name": "target_audience",
+              "value": "Decision-makers and team leads at growing SaaS startups with 20 to 200 employees. Main roles include engineering managers, product leads, operations managers, and founders. They work in remote or hybrid teams, struggle with too many meetings, poor async habits, and slow feedback loops, and want to stay aligned without being pulled into more calls.",
+              "type": "string"
+            },
+            {
+              "id": "c13",
+              "name": "brand_voice_detailed",
+              "value": "Clear, direct, human, practical, and confident. Every sentence should earn its place. Say what you mean without hedging. Write like real people, not corporate marketing. Give the reader something useful: a tip, a frame, or a perspective they can act on. Loopin has a clear point of view: async is better for focused work.",
+              "type": "string"
+            },
+            {
+              "id": "c14",
+              "name": "tone_linkedin",
+              "value": "Thoughtful and professional, while still clear and direct. LinkedIn is best for thought leadership, data, product posts, customer stories, and team stories. Use a strong hook in the first 2 to 3 lines, short paragraphs, generous line breaks, one clear argument or story, and one clear CTA.",
+              "type": "string"
+            },
+            {
+              "id": "c15",
+              "name": "tone_x",
+              "value": "Sharp, punchy, direct, and opinionated. X is best for hot takes, threads, tips, data points, and quick product updates. Use one idea per tweet, short sentences, numbers, contrast, and a strong opening line that stands alone. Avoid heavy hashtag use.",
+              "type": "string"
+            },
+            {
+              "id": "c16",
+              "name": "tone_instagram",
+              "value": "Warm, visual, and human. Instagram is best for brand awareness, culture, behind-the-scenes content, product UI, and carousels. The image or carousel should carry the main story, while the caption adds context and colour.",
+              "type": "string"
+            },
+            {
+              "id": "c17",
+              "name": "key_messages",
+              "value": "1. Meetings are a default, not a necessity. 2. Most syncs can be replaced by a short async update. 3. Async is not slower, it is calmer. 4. People do better work when they control their time. 5. Teams that communicate async move faster. 6. Less interruption means more deep work and faster output. 7. Loopin makes async easy: quick to record, easy to share, simple to review.",
+              "type": "string"
+            },
+            {
+              "id": "c18",
+              "name": "language_use",
+              "value": "Async; asynchronous; video update; quick video; short video; team alignment; stay aligned; deep work; focused time; record once, watch anytime; cut the call; skip the meeting; on your own schedule; remote-first; hybrid.",
+              "type": "string"
+            },
+            {
+              "id": "c19",
+              "name": "language_avoid",
+              "value": "Hop on a call; quick sync; touch base; circle back; leverage; streamline; optimize; utilise; transform your workflow; revolutionary; game-changing; solutions as a standalone noun; passive voice where active voice is possible.",
+              "type": "string"
+            },
+            {
+              "id": "c20",
+              "name": "visual_identity",
+              "value": "Clean and modern. Primary color #5B4AE8. Secondary color #00D9C8. Warm accent #FF5A1F. Light background #F3F4F6. Dark text #111827. White #FFFFFF. Inter Bold for headings, Inter Regular for body. Real people in real work environments, natural light, neutral tones, clean backgrounds. Avoid stock photos, suits, handshakes, staged meetings, dark aesthetics, clip art.",
+              "type": "string"
+            },
+            {
+              "id": "c21",
+              "name": "platform_rules_linkedin",
+              "value": "Caption: 800 to 1400 characters for optimal reach. For customer stories, aim for 600 to 900 characters. Technical maximum: 3000 characters. Hook must stand alone in first 2 lines — use a bold statement, a surprising number, or a direct question. Short paragraphs, one idea per block, generous line breaks for mobile readability. Tell a story with a lesson or make a clear argument with evidence. One CTA only: a question to comment on, a link, or a prompt to share — never all three. 3 to 5 hashtags at end. Avoid engagement bait — do not use \"like if you agree\" or \"comment YES if this resonates\". Image: 1200x627px landscape or 1080x1080px square. Best content types: thought leadership, data posts, product updates, customer stories, how-to posts. Best posting time: Tuesday to Thursday, 8–10am or 12pm.",
+              "type": "string"
+            },
+            {
+              "id": "c22",
+              "name": "platform_rules_x",
+              "value": "Tweet: 280 characters max. Thread: 3 to 7 tweets ideal, beyond 10 loses engagement sharply. One idea per tweet — the constraint forces clarity. Be direct and blunt: \"Async beats sync for focused work\" not \"There are many ways asynchronous communication may provide benefits.\" Use numbers: \"3 hours a week\" is more memorable than \"a lot of time\". Strong opening tweet must stand alone and be share-worthy — everything after is a bonus. End with a question or open statement that invites replies — X algorithm rewards back-and-forth. 0 to 1 hashtag only — heavy hashtag use looks spammy. URLs count as 23 characters regardless of length. Image: 1600x900px landscape or 1080x1080px square. Video: up to 2 minutes 20 seconds. Best content types: hot takes, threads, quick tips, data points, product updates. Best posting time: any time — engagement spikes 8 to 9am and 7 to 8pm.",
+              "type": "string"
+            },
+            {
+              "id": "c23",
+              "name": "platform_rules_instagram",
+              "value": "Image: 1080x1080px square or 1080x1350px portrait. Caption: 200 to 400 characters for culture posts, up to 2200 characters max — hook must appear in first 3 lines before the fold. The image or carousel carries the main message — caption adds context, story, or CTA, never repeats what the image already says. 3 to 5 hashtags at end of caption or in first comment. Carousel: 4 to 6 slides, up to 10 max. Use carousels for tips, process explainers, and team stories — they get more engagement than single posts. For carousel structure: Slide 1 is the visual hook with minimal text overlay. Slides 2 to 5 each show one specific moment, tip, or step. Final slide is a CTA or closing thought. Visual style: warm, natural light, neutral tones, real people in real environments, Loopin brand palette accents (#5B4AE8, #00D9C8). Avoid staged stock photos, dark aesthetics, suits, handshakes, and Zoom call screenshots. Best posting time: Tuesday to Friday, 11am to 1pm or 7 to 9pm.",
+              "type": "string"
+            },
+            {
+              "id": "c24",
+              "name": "content_pillars",
+              "value": "Meeting culture; async tips; product; social proof; team culture.",
+              "type": "string"
+            },
+            {
+              "id": "c3",
+              "name": "output_channel",
+              "value": "google_sheets",
+              "type": "string"
+            },
+            {
+              "id": "c34",
+              "name": "client_email",
+              "value": "client@example.com",
+              "type": "string"
+            },
+            {
+              "id": "c35",
+              "name": "reviewer_email",
+              "value": "reviewer@example.com",
+              "type": "string"
+            },
+            {
+              "id": "c36",
+              "name": "manager_email",
+              "value": "manager@example.com",
+              "type": "string"
+            },
+            {
+              "id": "c37",
+              "name": "escalation_email",
+              "value": "escalation@example.com",
+              "type": "string"
+            },
+            {
+              "id": "c38",
+              "name": "max_revision_cycles",
+              "value": 3,
+              "type": "number"
+            },
+            {
+              "id": "c4",
+              "name": "client",
+              "value": "={{ $json.Client }}",
+              "type": "string"
+            },
+            {
+              "id": "c5",
+              "name": "platform",
+              "value": "={{ $json.Platform }}",
+              "type": "string"
+            },
+            {
+              "id": "c6",
+              "name": "content_type",
+              "value": "={{ $json['Content Type'] }}",
+              "type": "string"
+            },
+            {
+              "id": "c7",
+              "name": "topic_hint",
+              "value": "={{ $json['Topic Hint'] || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "c8",
+              "name": "tone_note",
+              "value": "={{ $json['Tone Note'] || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "c10",
+              "name": "sofia_revision_count",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "c25",
+              "name": "marcus_revision_count",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "c26",
+              "name": "sofia_feedback_history",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "c27",
+              "name": "marcus_feedback_history",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "c28",
+              "name": "taylor_feedback_history",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "c29",
+              "name": "feedback_taylor_to_marcus",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "c30",
+              "name": "feedback_taylor_to_sofia",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "c33",
+              "name": "feedback_marcus_to_sofia",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "c31",
+              "name": "current_stage",
+              "value": "sofia",
+              "type": "string"
+            },
+            {
+              "id": "c32",
+              "name": "final_status",
+              "value": "brief_received",
+              "type": "string"
+            },
+            {
+              "id": "61f42f2e-4c23-4418-9845-adc2702419be",
+              "name": "rejected_angles",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "c39",
+              "name": "taylor_revision_count",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "c40",
+              "name": "image_tool",
+              "value": "DALL-E 3",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f3fceaa1-bef6-4073-bb9a-0d6660c6bba8",
+      "name": "Config — Brand + Brief",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        14688,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Generate 3 content angle options for {{ $('Config — Brand + Brief').item.json.client }} on {{ $('Config — Brand + Brief').item.json.platform }}.\nContent type: {{ $('Config — Brand + Brief').item.json.content_type }}.\n{{ $('Config — Brand + Brief').item.json.topic_hint ? 'Seed idea: ' + $('Config — Brand + Brief').item.json.topic_hint + '.' : '' }}\n{{ $('Config — Brand + Brief').item.json.tone_note ? 'Tone note: ' + $('Config — Brand + Brief').item.json.tone_note + '.' : '' }}\n{{ $json.sofia_feedback_history ? 'Revision history: ' + $json.sofia_feedback_history : '' }}\n{{ $json.feedback_taylor_to_sofia ? 'Strategic feedback from Taylor: ' + $json.feedback_taylor_to_sofia : '' }}\n{{ $json.feedback_marcus_to_sofia ? 'Feedback from Marcus reviewer: ' + $json.feedback_marcus_to_sofia : '' }}",
+        "options": {
+          "systemMessage": "=You are Sofia, a senior content strategist at Relay, a B2B social media agency. Your job is to propose the strongest possible content angles for Loopin's social media posts.\n\nCLIENT CONTEXT:\n- Brand: {{ $('Config — Brand + Brief').item.json.brand_name }}\n- About: {{ $('Config — Brand + Brief').item.json.brand_about }}\n- Target audience: {{ $('Config — Brand + Brief').item.json.target_audience }}\n\nBRAND VOICE:\n{{ $('Config — Brand + Brief').item.json.brand_voice_detailed }}\n\nPLATFORM: {{ $('Config — Brand + Brief').item.json.platform }}\nPLATFORM TONE:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.tone_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.tone_x : ($('Config — Brand + Brief').item.json.platform === 'Instagram' ? $('Config — Brand + Brief').item.json.tone_instagram : '')) }}\n\nPLATFORM RULES:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.platform_rules_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.platform_rules_x : ($('Config — Brand + Brief').item.json.platform === 'Instagram' ? $('Config — Brand + Brief').item.json.platform_rules_instagram : '')) }}\n\nKEY MESSAGES TO REINFORCE:\n{{ $('Config — Brand + Brief').item.json.key_messages }}\n\nLANGUAGE TO AVOID:\n{{ $('Config — Brand + Brief').item.json.language_avoid }}\n\nPREFERRED VOCABULARY (use these terms actively):\n{{ $('Config — Brand + Brief').item.json.language_use }}\n\nCONTENT TYPE: {{ $('Config — Brand + Brief').item.json.content_type }}\n\n{{ $json.sofia_feedback_history ? 'PREVIOUS REVISION FEEDBACK:\\n' + $json.sofia_feedback_history + '\\nThe next angles MUST directly address this feedback. Do not repeat rejected approaches.' : '' }}\n\nANGLE COMPLIANCE CONTRACT:\n\nThe topic hint and tone note may contain mandatory strategic requirements, examples, metrics, quotes, CTA instructions, source citations, format expectations, visual direction, or approval criteria.\n\nYou must extract and reflect all mandatory requirements from:\n\nTopic hint:\n{{ $('Config — Brand + Brief').item.json.topic_hint }}\n\nTone note:\n{{ $('Config — Brand + Brief').item.json.tone_note }}\n\nContent type:\n{{ $('Config — Brand + Brief').item.json.content_type }}\n\nPlatform:\n{{ $('Config — Brand + Brief').item.json.platform }}\n\nPlatform rules:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.platform_rules_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.platform_rules_x : $('Config — Brand + Brief').item.json.platform_rules_instagram) }}\n\nBefore proposing angles, silently identify:\n- The core subject of the brief\n- The required content type behavior\n- The required platform behavior\n- Required metrics, quotes, sources, links, names, or CTA instructions\n- Required tone\n- Forbidden language\n- Any visual or structural expectation\n- Any approval criteria implied by the brief\n\nEvery angle must be designed so Marcus can produce a compliant final post without guessing.\n\nIf the topic hint or tone note contains a specific metric, quote, source, link, CTA, customer name, statistic, format instruction, or tone instruction, the angle must make room for it.\n\nDo not create generic B2B angles that could work for any async tool. Every angle must be specific to Loopin, the selected platform, the content type, and the brief.\n\nBefore returning the angles, silently verify:\n- Each angle fits the content type\n- Each angle fits the platform\n- Each angle supports the mandatory requirements from the brief\n- Each hook could become the opening line of the post\n- No hook or title uses forbidden language\n- The three angles are meaningfully different\n- The rationale explains why the angle can pass the brief requirements\n\nIf any angle fails this check, rewrite it before answering.\n\nCONTENT TYPE STRATEGY RULES:\n\nIf CONTENT TYPE is Product announcement:\n- The angle must lead toward a post where the benefit or pain comes before the feature.\n- The angle must naturally support a clear CTA when the brief asks for one.\n- The angle must make the product feel useful, not just new.\n\nIf CONTENT TYPE is Thought leadership:\n- The angle must express a clear point of view.\n- The angle must be strong enough to stand without a product pitch.\n- If the platform is X (Twitter), the angle must be simple enough for one tweet or a short thread.\n\nIf CONTENT TYPE is Customer story:\n- The angle must preserve the customer, problem, metrics, quote, and proof points when provided.\n- The customer must remain the hero.\n- The angle must avoid sounding like a press release.\n\nIf CONTENT TYPE is Culture post:\n- The angle must support a visual-first execution.\n- If the platform is Instagram, the angle must be easy to translate into a carousel or strong visual scene.\n- The angle must focus on specific human moments, not abstract culture claims.\n\nIf CONTENT TYPE is Data post:\n- The angle must preserve the statistic, source, and business implication.\n- The angle must naturally support a cost, productivity, or behavior-change argument.\n- The angle must not weaken the data with vague claims.\n\nOUTPUT FORMAT:\nReturn exactly 3 content angles. For each angle use this structure:\n\nANGLE 1: [Title]\nRationale: [2-3 sentences explaining why this angle fits the brief, the platform, Loopin's brand, and the mandatory requirements found in the topic hint and tone note]\nHook: [The opening line of the post]\nExecution guidance: [1 sentence telling Marcus what must be preserved or emphasized in the final post]\nContent pillar: [Meeting culture / Async tips / Product / Social proof / Team culture]\n\nANGLE 2: [Title]\nRationale: [2-3 sentences explaining why this angle fits the brief, the platform, Loopin's brand, and the mandatory requirements found in the topic hint and tone note]\nHook: [The opening line of the post]\nExecution guidance: [1 sentence telling Marcus what must be preserved or emphasized in the final post]\nContent pillar: [Meeting culture / Async tips / Product / Social proof / Team culture]\n\nANGLE 3: [Title]\nRationale: [2-3 sentences explaining why this angle fits the brief, the platform, Loopin's brand, and the mandatory requirements found in the topic hint and tone note]\nHook: [The opening line of the post]\nExecution guidance: [1 sentence telling Marcus what must be preserved or emphasized in the final post]\nContent pillar: [Meeting culture / Async tips / Product / Social proof / Team culture]\n\n{{ $json.rejected_angles ? 'PREVIOUSLY REJECTED ANGLES — never propose these again or anything similar:\\n' + $json.rejected_angles : '' }}\n\nRULES:\n- Every angle must be specific to Loopin — not generic B2B advice\n- Every hook must be strong enough to stop scrolling on {{ $('Config — Brand + Brief').item.json.platform }}\n- Never use words from the language avoid list\n- Each angle must be meaningfully different from the others\n- If revision feedback exists, the new angles must be visibly different from what was rejected\n- Do not create angles that require facts, customer names, metrics, quotes, sources, product claims, or links not present in the brief.\n- If the brief contains a specific metric, quote, source, customer name, or CTA, at least one angle must explicitly preserve it."
+        }
+      },
+      "id": "a8633b11-2c4c-4b4d-b5b0-84e88cc86f1a",
+      "name": "Sofia — Research Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        15040,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "id": "2140e993-4958-452d-a775-a5593101133b",
+      "name": "OpenAI — Sofia",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        15040,
+        4576
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "sc1",
+              "name": "sofia_angles",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "5a065416-f27a-4c69-878f-b5914ded12fa",
+      "name": "Sofia — Save Angles",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        15296,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "form",
+        "formTitle": "={{ 'Review Sofia angles for ' + $('Config — Brand + Brief').item.json.brand_name }}",
+        "formDescription": "={{ $('Restore State — Sofia').item.json.sofia_revision_count > 0 ? '⚠️ REVISION REQUEST — Round ' + $('Restore State — Sofia').item.json.sofia_revision_count + '/' + ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) + ($('Restore State — Sofia').item.json.sofia_revision_count >= ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) - 1 ? ' — ⚠️ Next round goes to ESCALATION' : '') : ($('Restore State — Sofia').item.json.feedback_taylor_to_sofia ? '🔴 TAYLOR REJECTION — New angle required' : '🆕 NEW REQUEST') }}\n\n**Context**\n**Client:** {{ $('Config — Brand + Brief').item.json.client }}  \n**Platform:** {{ $('Config — Brand + Brief').item.json.platform }}  \n**Content type:** {{ $('Config — Brand + Brief').item.json.content_type }}  \n**Topic hint:** {{ $('Config — Brand + Brief').item.json.topic_hint || '(none)' }}  \n**Tone note:** {{ $('Config — Brand + Brief').item.json.tone_note || '(none)' }}\n\nFeedback history\n{{ $('Restore State — Sofia').item.json.feedback_taylor_to_sofia ? '🔴 TAYLOR REJECTION REASON: ' + $('Restore State — Sofia').item.json.feedback_taylor_to_sofia : '' }}\n\n{{ $('Restore State — Sofia').item.json.sofia_feedback_history ? '📋 PREVIOUS FEEDBACK: ' + $('Restore State — Sofia').item.json.sofia_feedback_history : '' }}\n\nProposed angles\n{{ $('Sofia — Save Angles').item.json.sofia_angles || '(angles not available)' }}\n\nAngle review checklist\nBefore approving an angle, verify:\n- Does the angle match the selected content type?\n- Does the hook fit the selected platform?\n- Does the angle preserve the topic hint and tone note?\n- Does it support required metrics, quotes, CTA, source, link, or visual expectations?\n- Is it specific to Loopin?\n- Is it meaningfully different from rejected angles?\n- Can Marcus write a compliant post from this angle without guessing?\n- Does the angle avoid forbidden language?\n- Would this angle help the final post pass the expected test criteria?\n\nAction required\nApprove one angle to send to Marcus, request new angles with notes, or reject this brief as out of scope.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Decision",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Approve — send to Marcus"
+                  },
+                  {
+                    "option": "Revise — request new angles"
+                  },
+                  {
+                    "option": "Reject — out of scope"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Approved angle",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "ANGLE 1"
+                  },
+                  {
+                    "option": "ANGLE 2"
+                  },
+                  {
+                    "option": "ANGLE 3"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Revision notes",
+              "fieldType": "textarea",
+              "placeholder": "Be specific: what is off-brand, unclear, generic, or weak for this platform?"
+            },
+            {
+              "fieldLabel": "Rejection reason",
+              "fieldType": "textarea",
+              "placeholder": "Explain why the brief is out of scope for the brand, audience, or platform."
+            }
+          ]
+        },
+        "limitWaitTime": true,
+        "resumeAmount": 24,
+        "options": {
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Thank you! Your review has been submitted. The workflow will continue automatically."
+            }
+          }
+        }
+      },
+      "id": "7f888197-9531-420b-bee5-4d6d5e7c9ac4",
+      "name": "Sofia — Approve Angle",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        15728,
+        4368
+      ],
+      "webhookId": "84fe67b3-daa0-4941-a0d2-70be0e6971ad"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Approve — send to Marcus",
+                    "id": "bc76ea9c-992a-4273-98eb-d4136e07fcd5"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Revise — request new angles",
+                    "id": "9466fa83-dd1e-441a-a5a7-90193b736b4c"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Reject — out of scope",
+                    "id": "a21414d1-feb6-4029-9b0e-8d34e65a95da"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "0ecee2eb-0404-4a2e-a033-8a25d5116688",
+      "name": "Sofia — Route Decision",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        15968,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a {{ $('Config — Brand + Brief').item.json.platform }} post for {{ $('Config — Brand + Brief').item.json.client }} based on this approved angle: {{ $('Sofia — Save Approved Angle').item.json.approved_angle }}.\nContent type: {{ $('Config — Brand + Brief').item.json.content_type }}.\n{{ $('Config — Brand + Brief').item.json.topic_hint ? 'Topic context: ' + $('Config — Brand + Brief').item.json.topic_hint : '' }}\n{{ $json.marcus_feedback_history ? 'Revision history: ' + $json.marcus_feedback_history : '' }}\n{{ $json.feedback_taylor_to_marcus ? 'Taylor feedback to address: ' + $json.feedback_taylor_to_marcus : '' }}",
+        "options": {
+          "systemMessage": "=You are Marcus, a senior creative specialist at Relay, a B2B social media agency. Your job is to turn an approved content angle into a publish-ready social media post for Loopin.\n\nCLIENT CONTEXT:\nBrand: {{ $('Config — Brand + Brief').item.json.brand_name }}\nAbout: {{ $('Config — Brand + Brief').item.json.brand_about }}\nTarget audience: {{ $('Config — Brand + Brief').item.json.target_audience }}\n\nBRAND VOICE:\n{{ $('Config — Brand + Brief').item.json.brand_voice_detailed }}\n\nPLATFORM: \n{{ $('Config — Brand + Brief').item.json.platform }}\n\nPLATFORM TONE:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.tone_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.tone_x : $('Config — Brand + Brief').item.json.tone_instagram) }}\n\nPLATFORM RULES:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.platform_rules_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.platform_rules_x : $('Config — Brand + Brief').item.json.platform_rules_instagram) }}\n\nKEY MESSAGES TO REINFORCE:\n{{ $('Config — Brand + Brief').item.json.key_messages }}\n\nLANGUAGE TO AVOID (never use these):\n{{ $('Config — Brand + Brief').item.json.language_avoid }}\n\nPREFERRED VOCABULARY (use these terms actively):\n{{ $('Config — Brand + Brief').item.json.language_use }}\n\nVISUAL IDENTITY:\n{{ $('Config — Brand + Brief').item.json.visual_identity }}\n\nAPPROVED ANGLE:\n{{ $('Sofia — Save Approved Angle').item.json.approved_angle }}\n\nCONTENT TYPE: \n{{ $('Config — Brand + Brief').item.json.content_type }}\n\n\nBRIEF COMPLIANCE CONTRACT:\nThe topic hint and tone note may contain mandatory requirements, examples, metrics, quotes, CTA instructions, source citations, format limits, visual instructions, or approval criteria.\n\nYou must extract and preserve all mandatory requirements from:\n\nTopic hint:\n{{ $('Config — Brand + Brief').item.json.topic_hint }}\n\nTone note:\n{{ $('Config — Brand + Brief').item.json.tone_note }}\n\nContent type:\n{{ $('Config — Brand + Brief').item.json.content_type }}\n\nPlatform:\n{{ $('Config — Brand + Brief').item.json.platform }}\n\nPlatform rules:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.platform_rules_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.platform_rules_x : $('Config — Brand + Brief').item.json.platform_rules_instagram) }}\n\nBefore writing, silently identify:\n- Required format\n- Required character limit or range\n- Required CTA or explicit absence of CTA\n- Required metrics, quotes, names, links, or sources\n- Required visual format\n- Required tone\n- Required platform behavior\n- Forbidden language\n- Any approval criteria implied by the brief\n\nIf the topic hint or tone note contains a specific metric, quote, source, link, CTA, number of slides, customer name, statistic, format instruction, or tone instruction, treat it as mandatory.\n\nIf a mandatory requirement conflicts with generic platform advice, follow the mandatory requirement unless it violates the platform rules.\n\nIf a requirement is missing or unclear, make the safest platform-appropriate choice. Do not invent facts, metrics, quotes, sources, links, customer names, or claims.\n\nBefore returning the JSON, silently verify:\n- The post follows the platform rules\n- The post follows the content type rules\n- The post preserves all mandatory brief details\n- The post avoids every phrase in LANGUAGE TO AVOID\n- The visual direction matches the content type and platform\n- The image prompt matches the visual direction\n- The output is valid JSON only\n\nIf any check fails, revise internally before answering.\n\nREVISION FEEDBACK:\n{{ $json.marcus_feedback_history ? 'REVISION FEEDBACK — you must address all points below:\\n' + $json.marcus_feedback_history : '' }}\n\nFEEDBACK FROM FINAL REVIEWER:\n{{ $json.feedback_taylor_to_marcus ? 'FEEDBACK FROM FINAL REVIEWER — address these quality issues:\\n' + $json.feedback_taylor_to_marcus : '' }}\n\nSPECIAL INSTRUCTION FOR THIS REQUEST:\n\nUse the request-specific tone note only when it is present.\nTone note:\n{{ $('Config — Brand + Brief').item.json.tone_note }}\nIf the tone note asks for founder voice, write as a founder.\nIf the tone note asks for authentic storytelling, write as a customer story.\nIf the tone note asks for visual-first execution, prioritize visual clarity.\nIf the tone note asks for data, preserve the statistic, source, and business implication.\nIf the tone note says 'No CTA', 'without CTA', or 'no call to action', do not include any call-to-action. End with a question or open statement that invites engagement instead.\nIf no specific tone note exists, follow the platform tone and brand voice.\nDo not apply one request's tone style to every content type.\n\nCONTENT TYPE RULES:\n\nIF platform is X (Twitter), choose one of these formats:\n\nOption A — Single tweet:\n- Maximum 280 characters\n- Return only one short post in post_copy\n\nOption B — Thread:\n- 3 to 4 tweets unless the brief asks otherwise\n- Label each tweet clearly:\nTweet 1:\nTweet 2:\nTweet 3:\nTweet 4:\n- Each tweet must stay under 280 characters\n- Do not return an unstructured multi-paragraph post for X\n\nIf CONTENT TYPE is Product announcement:\n- Lead with the user pain, desired outcome, or practical benefit before explaining the feature.\n- Make the feature feel useful, not just new.\n- Include only one CTA when the brief asks for one.\n- If the topic hint includes a link, preserve it exactly.\n- Do not turn the post into a generic product launch announcement.\n\nIf CONTENT TYPE is Thought leadership:\n- Make one clear argument.\n- Use a direct point of view, not neutral commentary.\n- Do not add a product CTA unless the brief asks for one.\n- If the tone note asks for founder voice, write with personal conviction.\n- If platform is X (Twitter), output either one tweet under 280 characters or a clearly labeled thread.\n\nIf CONTENT TYPE is Customer story:\n- Open with the customer's pain/problem.\n- Preserve customer names, metrics, quotes, and proof points exactly as provided.\n- Do not open with the quote unless the brief explicitly asks for that.\n- Do not open with Loopin or the solution.\n- Do not make the story sound like a press release.\n- The customer must be the hero, not Loopin.\n\nIf CONTENT TYPE is Culture post:\n- Make the visual asset carry the main story.\n- If platform is Instagram, create a visual-first caption and carousel/image direction.\n- Keep the caption within the platform rule range.\n- Use warm, human, specific moments instead of abstract culture claims.\n- Do not over-explain what the image or carousel already shows.\n\nIf CONTENT TYPE is Data post:\n- Preserve the statistic, source, and business implication.\n- Include the source in the post when provided.\n- Include a cost, productivity, or behavior-change implication.\n- Do not weaken the data with vague claims.\n- Do not bury the statistic too late in the post.\n\n\nDATA POST RULES:\n- When a statistic includes a source citation (e.g., HBR, 2017), you MUST include the source in the post caption.\n- Format: \"(Source: [Author/Organization, Year])\" at the end of the sentence containing the statistic.\n- Example: \"Teams spend 23 hours per week in meetings (Source: HBR, 2017 — Perlow, Hadley & Eun).\"\n- Do NOT put the source only in comments unless the user explicitly requests it.\n- Include a brief cost implication: estimate the weekly cost based on average salary or state the impact generically.\n\nOUTPUT FORMAT — return only valid JSON, no markdown, no extra text:\n{\n  \"post_copy\": \"complete post copy ready to publish within platform character limits\",\n  \"visual_direction\": \"2-3 sentences describing the visual asset with brand colors and composition\",\n  \"image_prompt\": \"detailed AI image generator prompt using Loopin visual identity, or empty string if not needed\"\n}\n\nIMAGE PROMPT GENERATION RULES:\n\nThe company uses {{ $('Config — Brand + Brief').item.json.image_tool }} for image generation.\n\nFor SINGLE IMAGE posts:\n- Generate a detailed prompt following the tool's best practices\n- Include: subject, action, environment, lighting, color palette (Loopin brand: #5B4AE8, #00D9C8, #FF5A1F), mood, composition\n- Format: \"[subject] [action] in [environment], [lighting], [color palette], [mood], [composition] —ar 16:9 (or appropriate aspect ratio)\"\n\nFor CAROUSEL posts (Instagram):\n- Generate a SINGLE prompt that describes ALL slides sequentially\n- Format: \"Slide 1: [description]. Slide 2: [description]. Slide 3: [description]...\"\n- Each slide must show a different moment, step, idea, or scene from the brief\n- Maintain consistency in character, environment, lighting, and visual style across all slides\n- Include aspect ratio specification: —ar 1:1 (for square) or —ar 4:5 (for portrait)\n\nEXAMPLES:\n\nExample for DALL-E 3 (carousel):\n\"Slide 1: Mia, a product designer, starts her day with coffee at her Lisbon desk, sunrise light through window. Slide 2: Mia recording a 2-minute video update, smartphone on a stand, Loopin app interface visible. Slide 3: Mia reviewing team async updates on her laptop, focused expression. Slide 4: Mia doing 4 hours of deep work, uninterrupted, headphones on. Slide 5: Mia finishing work at 5pm, packing up, golden hour light.\"\n\nQUALITY CHECK (self-evaluation before output):\n- Is the prompt specific enough for an image generator?\n- Does it include Loopin brand colors where appropriate?\n- Does it match the visual_identity rules (real people, natural light, no stock photo aesthetics)?\n- For carousels: Are all slides described? Is consistency maintained?\n\nRULES:\n- Return ONLY the JSON object. No text before or after.\n- Never use markdown code blocks.\n- post_copy must follow platform rules strictly.\n- visual_direction must reference Loopin brand colors (#5B4AE8, #00D9C8).\n- Never use words from the language avoid list.\n- If revision feedback exists, address every point raised."
+        }
+      },
+      "id": "1b581c9e-6a8d-44b5-ba2b-23882e2690d2",
+      "name": "Marcus — Creative Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        16432,
+        4240
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "id": "6db74654-de0c-4a42-b571-3292a7f43d00",
+      "name": "OpenAI — Marcus",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        16512,
+        4528
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ms1",
+              "name": "post_copy",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return p.post_copy || $json.output; } catch(e) { return $json.output; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "ms2",
+              "name": "visual_direction",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return p.visual_direction || ''; } catch(e) { return ''; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "abdd0825-f986-4104-99fb-c7585bcb9c40",
+              "name": "image_prompt",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return p.image_prompt || ''; } catch(e) { return ''; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "ms3",
+              "name": "marcus_output_valid",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); JSON.parse(s); return true; } catch(e) { return false; } })() }}",
+              "type": "boolean"
+            },
+            {
+              "id": "ms4",
+              "name": "marcus_output_parse_error",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); JSON.parse(s); return ''; } catch(e) { return e.message || String(e); } })() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "12531e76-ec09-450e-bd73-697348c1cce7",
+      "name": "Marcus — Save Output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        16720,
+        4240
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "form",
+        "formTitle": "={{ 'Review Marcus post for ' + $('Config — Brand + Brief').item.json.brand_name }}",
+        "formDescription": "={{ $('Restore State — Marcus').item.json.marcus_revision_count > 0 ? '⚠️ REVISION — Round ' + $('Restore State — Marcus').item.json.marcus_revision_count + '/' + ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) + ($('Restore State — Marcus').item.json.marcus_revision_count >= ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) - 1 ? ' — ⚠️ Next round goes to ESCALATION' : '') : ($('Restore State — Marcus').item.json.feedback_taylor_to_marcus ? '🔴 REVISION FROM TAYLOR FEEDBACK' : '🆕 NEW POST') }}\n\n**Context**\n**Client:** {{ $('Config — Brand + Brief').item.json.client }}  \n**Platform:** {{ $('Config — Brand + Brief').item.json.platform }}  \n**Content type:** {{ $('Config — Brand + Brief').item.json.content_type }}  \n**Approved angle:** {{ $('Sofia — Save Approved Angle').item.json.approved_angle }}\n\n\nFeedback history\n{{ $('Restore State — Marcus').item.json.feedback_taylor_to_marcus ? '🔴 TAYLOR FEEDBACK: ' + $('Restore State — Marcus').item.json.feedback_taylor_to_marcus : '' }}\n\nPost copy\n{{ $('Restore State — Marcus').item.json.post_copy || '(sem conteúdo)' }}\n\nVisual direction**\n{{ $('Restore State — Marcus').item.json.visual_direction || '(sem direção visual)' }}\n\n\nAction required\nChoose one decision: Approve to send to Taylor, Revise to request changes, or Reject to Sofia when the angle is wrong.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Decision",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Approve — send to Taylor"
+                  },
+                  {
+                    "option": "Revise — request changes"
+                  },
+                  {
+                    "option": "Reject to Sofia — wrong angle"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Approved",
+              "placeholder": "Confirm the copy and visual direction are on-brand and ready for QA."
+            },
+            {
+              "fieldLabel": "Revision notes",
+              "fieldType": "textarea",
+              "placeholder": "Be specific: copy, visual, CTA, tone, platform fit, or brand alignment."
+            },
+            {
+              "fieldLabel": "Rejection reason",
+              "fieldType": "textarea",
+              "placeholder": "Explain why this angle is wrong for the brand and what Sofia should explore instead."
+            }
+          ]
+        },
+        "limitWaitTime": true,
+        "resumeAmount": 24,
+        "options": {
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Decision submitted. The workflow will continue automatically."
+            }
+          }
+        }
+      },
+      "id": "a8c584b5-e325-4165-b599-980d4cbf63a0",
+      "name": "Marcus — Review Post",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        17184,
+        4240
+      ],
+      "webhookId": "aed80a28-49be-4b3c-8f43-ce2ba55cf7f4"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Approve — send to Taylor"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Revise — request changes"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Reject to Sofia — wrong angle"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3b202942-cd5a-4ec0-8b3a-30d9c9825667",
+      "name": "Marcus — Route Decision",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        17424,
+        4288
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Review this {{ $('Config — Brand + Brief').item.json.platform }} post for {{ $('Config — Brand + Brief').item.json.client }}.\n\nPost copy:\n{{ $('Marcus — Save Output').item.json.post_copy }}\n\nVisual direction:\n{{ $('Marcus — Save Output').item.json.visual_direction }}\n\nImage prompt (for AI generation):\n{{ $('Marcus — Save Output').item.json.image_prompt || '(not generated)' }}\n\nOriginal brief: {{ $('Config — Brand + Brief').item.json.content_type }} for {{ $('Config — Brand + Brief').item.json.platform }}. Topic: {{ $('Config — Brand + Brief').item.json.topic_hint }}.\n\n{{ $json.taylor_feedback_history ? 'Previous review notes: ' + $json.taylor_feedback_history : '' }}",
+        "options": {
+          "systemMessage": "=You are Taylor, the final quality reviewer at Relay, a B2B social media agency. Your job is to protect quality and ensure every post is ready to publish before it reaches the client.\n\nYou are not a copywriter. You are a strict quality gate.\n\nYour primary responsibility is to evaluate whether the post satisfies the original brief, platform rules, brand voice, language restrictions, approved angle, and visual requirements.\n\nCLIENT CONTEXT:\n- Brand: {{ $('Config — Brand + Brief').item.json.brand_name }}\n- About: {{ $('Config — Brand + Brief').item.json.brand_about }}\n- Target audience: {{ $('Config — Brand + Brief').item.json.target_audience }}\n\nBRAND VOICE:\n{{ $('Config — Brand + Brief').item.json.brand_voice_detailed }}\n\nPLATFORM: {{ $('Config — Brand + Brief').item.json.platform }}\n\nPLATFORM RULES:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.platform_rules_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.platform_rules_x : $('Config — Brand + Brief').item.json.platform_rules_instagram) }}\n\nLANGUAGE TO AVOID:\n{{ $('Config — Brand + Brief').item.json.language_avoid }}\n\nKEY MESSAGES:\n{{ $('Config — Brand + Brief').item.json.key_messages }}\n\nORIGINAL BRIEF:\n- Client: {{ $('Config — Brand + Brief').item.json.client }}\n- Platform: {{ $('Config — Brand + Brief').item.json.platform }}\n- Content type: {{ $('Config — Brand + Brief').item.json.content_type }}\n- Topic hint: {{ $('Config — Brand + Brief').item.json.topic_hint }}\n- Tone note: {{ $('Config — Brand + Brief').item.json.tone_note }}\n\nAPPROVED ANGLE:\n{{ $('Sofia — Save Approved Angle').item.json.approved_angle }}\n\nPOST TO REVIEW:\n{{ $('Marcus — Save Output').item.json.post_copy }}\n\nVISUAL DIRECTION:\n{{ $('Marcus — Save Output').item.json.visual_direction }}\n\nBRIEF COMPLIANCE CONTRACT:\nThe topic hint and tone note may contain mandatory requirements, examples, metrics, quotes, CTA instructions, source citations, format limits, visual instructions, tone requirements, or approval criteria.\n\nYou must evaluate whether the final post preserves and satisfies all mandatory requirements from:\n\nTopic hint:\n{{ $('Config — Brand + Brief').item.json.topic_hint }}\n\nTone note:\n{{ $('Config — Brand + Brief').item.json.tone_note }}\n\nContent type:\n{{ $('Config — Brand + Brief').item.json.content_type }}\n\nPlatform:\n{{ $('Config — Brand + Brief').item.json.platform }}\n\nPlatform rules:\n{{ $('Config — Brand + Brief').item.json.platform === 'LinkedIn' ? $('Config — Brand + Brief').item.json.platform_rules_linkedin : ($('Config — Brand + Brief').item.json.platform === 'X (Twitter)' ? $('Config — Brand + Brief').item.json.platform_rules_x : $('Config — Brand + Brief').item.json.platform_rules_instagram) }}\n\nBefore scoring, silently identify:\n- Required format\n- Required character limit or range\n- Required CTA or explicit absence of CTA\n- Required metrics, quotes, names, links, or sources\n- Required visual format\n- Required tone\n- Required platform behavior\n- Forbidden language\n- Any approval criteria implied by the brief\n\nIf the topic hint or tone note contains a specific metric, quote, source, link, CTA, number of slides, customer name, statistic, format instruction, or tone instruction, treat it as mandatory.\n\nA post can be well-written and still fail if it misses a mandatory brief requirement.\n\nIf the post misses a mandatory requirement from the topic hint or tone note, record it in quality_flags using this structure:\n{\n  \"category\": \"Brief compliance\",\n  \"issue\": \"Describe the missing mandatory requirement.\",\n  \"severity\": \"Major\"\n}\n\nUse platform_format_check to explain whether the post satisfies the platform rules, content type, format, CTA, metrics, source requirements, and brief-specific constraints.\n\nUse recommendation_reason to clearly state the most important reason for approving, sending back to Marcus, or rejecting to Sofia.\n\nCONTENT TYPE REVIEW RULES:\n\nIf CONTENT TYPE is Product announcement:\n- The post must lead with user pain, desired outcome, or practical benefit before explaining the feature.\n- The feature must feel useful, not just new.\n- If the brief asks for a CTA, the post must include one clear CTA.\n- If the brief includes a link, the post must preserve it exactly.\n- Reject generic launch copy that does not make the benefit clear.\n\nIf CONTENT TYPE is Thought leadership:\n- The post must make one clear argument.\n- The tone must be direct, opinionated, and useful.\n- Do not require a product CTA unless the brief asks for one.\n- If platform is X (Twitter), the output must be either one tweet under 280 characters or a clearly labeled thread.\n- Reject unstructured multi-paragraph X posts that exceed tweet limits.\n\nIf CONTENT TYPE is Customer story:\n- The post must preserve customer names, metrics, quotes, and proof points exactly when provided.\n- The customer must remain the hero.\n- The post must not sound like a generic press release.\n- The post should open with the customer pain/problem unless the brief explicitly asks for another structure.\n\nIf CONTENT TYPE is Culture post:\n- The post must support a visual-first execution.\n- If platform is Instagram, the caption must support the image or carousel without over-explaining it.\n- If a carousel is expected, the visual direction or image prompt must describe distinct slides or moments.\n- The post must focus on specific human moments, not abstract culture claims.\n\nIf CONTENT TYPE is Data post:\n- The post must preserve the statistic, source, and business implication.\n- If a source is provided, it must appear in the post.\n- The post must include a cost, productivity, or behavior-change implication.\n- Reject vague data posts that mention a statistic without explaining why it matters.\n\nPLATFORM-SPECIFIC REVIEW RULES:\n\nFor LinkedIn:\n- Hook must work in the first 2 to 3 lines.\n- Paragraphs must be short and readable on mobile.\n- The post must make one clear argument or tell one clear story.\n- There must be only one CTA.\n- Hashtags must be appropriate to the platform rules.\n\nFor X (Twitter):\n- If single tweet, it must be 280 characters or less.\n- If thread, it must be clearly labeled and each tweet must stay under 280 characters.\n- The first tweet must stand alone.\n- Do not approve a long unstructured block of text for X.\n\nFor Instagram:\n- The caption must support a visual-first execution.\n- Culture posts should stay within the caption range defined in the platform rules.\n- Carousel concepts must have clear slide-by-slide logic when a carousel is expected.\n- Visual direction must be concrete, warm, human, and aligned with Loopin's visual identity.\n\nLANGUAGE COMPLIANCE:\nYou must check the post for forbidden words and phrases from LANGUAGE TO AVOID.\n\nIf any forbidden phrase appears in the post_copy, mark it as a quality flag.\n\nIf the forbidden phrase appears only inside the source brief, approved angle, or instructions, do not flag it unless Marcus reused it in the final post.\n\nVISUAL REVIEW:\nEvaluate whether the visual direction:\n- Matches the content type\n- Matches the platform\n- References Loopin brand colors where appropriate\n- Feels specific enough for production\n- Avoids stock-photo clichés, staged meetings, suits, handshakes, dark aesthetics, and generic corporate visuals\n- If an image_prompt is provided, evaluate whether it is specific enough for production and matches the visual_direction.\n\nRECOMMENDATION LOGIC:\nUse this logic when deciding the recommendation:\n\nAPPROVE only if:\n- overall_score is 8.0 or higher\n- No Major or Critical quality flags exist\n- No mandatory brief requirement is missing\n- The post follows platform rules\n- The post avoids forbidden language\n- The visual direction is usable\n\nSEND BACK TO MARCUS if:\n- The strategy/angle is acceptable, but the copy, structure, visual direction, CTA, format, source citation, metric usage, tone, or platform execution needs revision\n- Any mandatory requirement from topic hint or tone note is missing but can be fixed by rewriting\n- The post is good but not publish-ready\n\nREJECT TO SOFIA if:\n- The approved angle is fundamentally wrong\n- The post cannot satisfy the brief without changing the strategic direction\n- The content is generic, off-brand, off-brief, or based on invented claims\n- The post uses a direction that conflicts with the content type or platform\n\nOUTPUT FORMAT — return only valid JSON, no markdown, no extra text:\n{\n  \"summary\": \"2-3 sentences describing what the post says, what it is trying to achieve, and whether it satisfies the core brief requirements\",\n  \"scorecard\": {\n    \"brand_voice\": { \"score\": 0, \"note\": \"one sentence justification\" },\n    \"platform_format\": { \"score\": 0, \"note\": \"one sentence justification\" },\n    \"hook_quality\": { \"score\": 0, \"note\": \"one sentence justification\" },\n    \"audience_fit\": { \"score\": 0, \"note\": \"one sentence justification\" },\n    \"language_compliance\": { \"score\": 0, \"note\": \"one sentence justification\" },\n    \"visual_direction\": { \"score\": 0, \"note\": \"one sentence justification\" }\n  },\n  \"overall_score\": 0,\n  \"quality_flags\": [\n    { \"category\": \"category name\", \"issue\": \"issue description\", \"severity\": \"Minor|Major|Critical\" }\n  ],\n  \"brand_voice_check\": \"analysis of brand voice alignment with specific phrases\",\n  \"platform_format_check\": \"analysis of platform format compliance with specifics, including brief requirements, content type, format, CTA, metrics, source, and platform rules\",\n  \"language_check\": \"list any forbidden words found or confirm none found\",\n  \"recommendation\": \"APPROVE|SEND BACK TO MARCUS|REJECT TO SOFIA\",\n  \"recommendation_reason\": \"one sentence explaining the recommendation, including any missing mandatory brief requirement when applicable\"\n}\n\nSCORING GUIDE (1-10):\n- 9-10: Excellent, publish ready\n- 8-8.9: Strong, likely publish ready if no mandatory requirement is missing\n- 7-7.9: Good, but needs careful review and usually revision if requirements are missing\n- 5-6.9: Acceptable draft, needs revision\n- 1-4.9: Critical issues, must revise or reject\n\nSCORING RULES:\n- overall_score must be the average of the 6 scorecard scores, rounded to 1 decimal.\n- overall_score below 8.0 → recommendation must be SEND BACK TO MARCUS unless the issue is strategic enough to reject to Sofia.\n- overall_score below 5.0 → recommendation must be REJECT TO SOFIA.\n- Any Critical flag → recommendation must be SEND BACK TO MARCUS or REJECT TO SOFIA.\n- Any Major flag → recommendation must not be APPROVE.\n- Any missing mandatory requirement from topic hint or tone note must be added to quality_flags.\n- Any missing mandatory requirement → recommendation must not be APPROVE.\n- Any forbidden language found in the final post_copy → recommendation must not be APPROVE.\n- If the platform is X (Twitter) and the post is neither a valid single tweet nor a clearly structured thread, recommendation must not be APPROVE.\n- If the content type is Data post and a provided source is missing from the post, recommendation must not be APPROVE.\n- If the content type is Customer story and provided metrics, customer names, or quotes are missing or altered, recommendation must not be APPROVE.\n\nRULES:\n- Return ONLY the JSON object. No text before or after.\n- Never use markdown code blocks.\n- Be honest and direct. Do not approve a post that has issues.\n- Reference specific lines or phrases when flagging issues.\n- Do not rewrite the post. Review it.\n- Do not invent missing facts.\n- The goal is zero edits needed after approval."
+        }
+      },
+      "id": "8d7e6211-e714-4baa-839b-7aee234a4f62",
+      "name": "Taylor — Review Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        17856,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "id": "5aa19e51-d0b8-40f7-be77-459a10a26e02",
+      "name": "OpenAI — Taylor",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        17856,
+        4576
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "tsr1",
+              "name": "taylor_review",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "a3a5e02e-93cc-448e-8470-26d226336f82",
+              "name": "taylor_summary",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return p.summary || ''; } catch(e) { return $json.output; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "7f48025d-474e-4f2f-8075-8ec088bb3a60",
+              "name": "taylor_scorecard",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return JSON.stringify(p.scorecard) || ''; } catch(e) { return ''; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "de77d38d-7de2-4338-94f0-51b961fd0ff5",
+              "name": "taylor_overall_score",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return p.overall_score || 0; } catch(e) { return 0; } })() }}",
+              "type": "number"
+            },
+            {
+              "id": "8063b165-cc76-4ba4-bbc1-4ebefd2e2ed5",
+              "name": "taylor_flags",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return JSON.stringify(p.quality_flags) || ''; } catch(e) { return ''; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "2613880a-c729-4641-9a99-6ee1a60e6b6f",
+              "name": "taylor_recommendation",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const p = JSON.parse(s); return p.recommendation || ''; } catch(e) { return ''; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "tsr2",
+              "name": "taylor_output_valid",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); JSON.parse(s); return true; } catch(e) { return false; } })() }}",
+              "type": "boolean"
+            },
+            {
+              "id": "tsr3",
+              "name": "taylor_output_parse_error",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); JSON.parse(s); return ''; } catch(e) { return e.message || String(e); } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "tsr8",
+              "name": "taylor_flags_readable",
+              "value": "={{ (() => { try { const s = $json.output.replace(/^```json\\s*/,'').replace(/\\s*```$/,'').trim(); const f = JSON.parse(s).quality_flags; return Array.isArray(f) ? f.map(x => x.severity + ': ' + x.issue).join('\\n') : ''; } catch(e) { return ''; } })() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "044946ac-1311-41e5-9b59-3f1dbeb4a91a",
+      "name": "Taylor — Save Review",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        18096,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "form",
+        "formTitle": "={{ 'Final QA for ' + $('Config — Brand + Brief').item.json.brand_name }}",
+        "formDescription": "={{ $('Restore State — Taylor').item.json.taylor_feedback_history ? '🔄 REVISION — Sofia: ' + ($('Restore State — Taylor').item.json.sofia_revision_count || 0) + '/' + ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) + ' · Marcus: ' + ($('Restore State — Taylor').item.json.marcus_revision_count || 0) + '/' + ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) + (($('Restore State — Taylor').item.json.sofia_revision_count || 0) >= ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) - 1 || ($('Restore State — Taylor').item.json.marcus_revision_count || 0) >= ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) - 1 ? ' — ⚠️ Close to escalation' : '') : '🆕 FIRST REVIEW' }}\n\nCONTEXT\nClient: {{ $('Config — Brand + Brief').item.json.client }}  \nPlatform: {{ $('Config — Brand + Brief').item.json.platform }}  \nContent type: {{ $('Config — Brand + Brief').item.json.content_type }}\n\nReview history\n{{ $('Restore State — Taylor').item.json.taylor_feedback_history ? '📋 PREVIOUS REVIEW: ' + $('Restore State — Taylor').item.json.taylor_feedback_history : '' }}\n\n{{ $('Restore State — Taylor').item.json.marcus_feedback_history ? '📝 MARCUS HISTORY: ' + $('Restore State — Taylor').item.json.marcus_feedback_history : '' }}\n\nPost copy\n{{ $('Restore State — Taylor').item.json.post_copy || '(sem conteúdo)' }}\n\n\nVisual direction\n{{ $('Restore State — Taylor').item.json.visual_direction || '(sem direção visual)' }}\n\nQuality assessment\nSCORE: {{ $('Restore State — Taylor').item.json.taylor_overall_score }}/10\n\nSUMMARY:  \n{{ $('Restore State — Taylor').item.json.taylor_summary }}\n\n\nQUALITY FLAGS:  \n{{ $('Restore State — Taylor').item.json.taylor_flags_readable }}\n\nAI RECOMMENDATION: {{ $('Restore State — Taylor').item.json.taylor_recommendation }}  \nNote: AI recommendation is advisory. Final decision is made by the human reviewer.\n\nAction required\nApprove to mark as ready to publish, send back to Marcus, or reject to Sofia.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Decision",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Approve — ready to publish"
+                  },
+                  {
+                    "option": "Send back to Marcus — needs revision"
+                  },
+                  {
+                    "option": "Reject to Sofia — wrong angle"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Approval notes",
+              "placeholder": "Optional: final publishing notes, risks checked, or approval rationale."
+            },
+            {
+              "fieldLabel": "Marcus revision notes",
+              "fieldType": "textarea",
+              "placeholder": "What exactly must Marcus change in copy, visual direction, CTA, or platform fit?"
+            },
+            {
+              "fieldLabel": "Sofia rejection notes",
+              "fieldType": "textarea",
+              "placeholder": "Why is the strategy/angle wrong for the brand, and what should Sofia explore instead?"
+            }
+          ]
+        },
+        "limitWaitTime": true,
+        "resumeAmount": 24,
+        "options": {
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Decision submitted. The workflow will continue automatically."
+            }
+          }
+        }
+      },
+      "id": "69fb52bc-7126-4a6e-a670-cf954b0dc1ab",
+      "name": "Taylor — Final Decision",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        18592,
+        4368
+      ],
+      "webhookId": "cdd72ea5-5af1-4a1a-9420-6ca184d030a9"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Approve — ready to publish"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Send back to Marcus — needs revision"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Decision }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "Reject to Sofia — wrong angle"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f6471776-9bed-4004-b6de-1026ce4fb08d",
+      "name": "Taylor — Route Decision",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        18784,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "o1",
+              "name": "client",
+              "value": "={{ $('Config — Brand + Brief').item.json.client }}",
+              "type": "string"
+            },
+            {
+              "id": "o2",
+              "name": "platform",
+              "value": "={{ $('Config — Brand + Brief').item.json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "o3",
+              "name": "content_type",
+              "value": "={{ $('Config — Brand + Brief').item.json.content_type }}",
+              "type": "string"
+            },
+            {
+              "id": "o4",
+              "name": "approved_angle",
+              "value": "={{ $('Sofia — Save Approved Angle').item.json.approved_angle }}",
+              "type": "string"
+            },
+            {
+              "id": "o5",
+              "name": "post_copy",
+              "value": "={{ $('Marcus — Save Output').item.json.post_copy }}",
+              "type": "string"
+            },
+            {
+              "id": "o6",
+              "name": "visual_direction",
+              "value": "={{ $('Marcus — Save Output').item.json.visual_direction }}",
+              "type": "string"
+            },
+            {
+              "id": "o7",
+              "name": "taylor_summary",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_summary }}",
+              "type": "string"
+            },
+            {
+              "id": "o8",
+              "name": "sofia_feedback_history",
+              "value": "={{ (() => { try { return $('Sofia — Pass Feedback').item.json.sofia_feedback_history || ''; } catch(e) { return $('Config — Brand + Brief').item.json.sofia_feedback_history || ''; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "o9",
+              "name": "marcus_feedback_history",
+              "value": "={{ (() => { try { return $('Marcus — Pass Feedback').item.json.marcus_feedback_history || ''; } catch(e) { return $('Config — Brand + Brief').item.json.marcus_feedback_history || ''; } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "o10",
+              "name": "taylor_feedback_history",
+              "value": "={{ (() => { try { return $('Taylor — Pass to Marcus').item.json.taylor_feedback_history || ''; } catch(e) { try { return $('Taylor — Reject to Sofia').item.json.taylor_feedback_history || ''; } catch(e2) { return $('Config — Brand + Brief').item.json.taylor_feedback_history || ''; } } })() }}",
+              "type": "string"
+            },
+            {
+              "id": "o11",
+              "name": "sofia_revision_count",
+              "value": "={{ (() => { try { return $('Sofia — Increment Counter').item.json.sofia_revision_count || 0; } catch(e) { return $('Config — Brand + Brief').item.json.sofia_revision_count || 0; } })() }}",
+              "type": "number"
+            },
+            {
+              "id": "o12",
+              "name": "marcus_revision_count",
+              "value": "={{ (() => { try { return $('Marcus — Increment Counter').item.json.marcus_revision_count || 0; } catch(e) { return $('Config — Brand + Brief').item.json.marcus_revision_count || 0; } })() }}",
+              "type": "number"
+            },
+            {
+              "id": "o13",
+              "name": "final_status",
+              "value": "Ready to Publish",
+              "type": "string"
+            },
+            {
+              "id": "o14",
+              "name": "approved_by",
+              "value": "Taylor",
+              "type": "string"
+            },
+            {
+              "id": "68679aa3-e0cc-4257-9aba-464e4be589bc",
+              "name": "image_prompt",
+              "value": "={{ $('Marcus — Save Output').item.json.image_prompt || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "f0b03505-2723-4e09-99cd-cddd1fb3cd90",
+              "name": "taylor_overall_score",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_overall_score || 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "1cafc06b-a4d8-4a39-a725-490383202291",
+              "name": "taylor_scorecard",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_scorecard || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "6fb9b1bd-7b8a-4b78-b16d-b234fa5f7983",
+              "name": "taylor_recommendation",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_recommendation || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "68c1ac10-0170-4b83-b1c9-6f2370f27b0d",
+              "name": "taylor_flags",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_flags || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "104c31dc-c26b-46fa-87c8-f04355e99975",
+      "name": "Output — Ready to Publish",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        19248,
+        4352
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "tpm1",
+              "name": "feedback_taylor_to_marcus",
+              "value": "={{ $json['Marcus revision notes'] || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "tpm2",
+              "name": "taylor_feedback_history",
+              "value": "={{ ($('Taylor — Save Review').item.json.taylor_summary ? $('Taylor — Save Review').item.json.taylor_summary : '') + ($json.taylor_feedback_history ? '\\n---\\n' + $json.taylor_feedback_history : '') }}",
+              "type": "string"
+            },
+            {
+              "id": "tpm3",
+              "name": "marcus_revision_count",
+              "value": "={{ (parseInt($json.marcus_revision_count) || 0) + 1 }}",
+              "type": "number"
+            },
+            {
+              "id": "tpm4",
+              "name": "image_prompt",
+              "value": "={{ $('Marcus — Save Output').item.json.image_prompt || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "tpm5",
+              "name": "taylor_revision_count",
+              "value": "={{ (parseInt($('Restore State — Taylor').item.json.taylor_revision_count) || 0) + 1 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f93162fd-a7e5-404a-8875-c27a080a0e90",
+      "name": "Taylor — Pass to Marcus",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        17856,
+        4768
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "trs1",
+              "name": "feedback_taylor_to_sofia",
+              "value": "={{ $json['Sofia rejection notes'] || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "trs2",
+              "name": "taylor_feedback_history",
+              "value": "={{ ($('Taylor — Save Review').item.json.taylor_summary ? $('Taylor — Save Review').item.json.taylor_summary : '') + ($json.taylor_feedback_history ? '\\n---\\n' + $json.taylor_feedback_history : '') }}",
+              "type": "string"
+            },
+            {
+              "id": "trs3",
+              "name": "final_status",
+              "value": "Rejected to Sofia — Taylor quality check failed",
+              "type": "string"
+            },
+            {
+              "id": "b8812cc2-4b82-4007-ac13-19e4c765a148",
+              "name": "marcus_revision_count",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "d9a7e3f1-5c82-4b19-ae31-6f8c92d04e17",
+              "name": "sofia_revision_count",
+              "value": "={{ (parseInt($json.sofia_revision_count) || 0) + 1 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "7574312c-25f6-437f-896a-3f6937b81ffe",
+      "name": "Taylor — Reject to Sofia",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        18096,
+        4768
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "mpf1",
+              "name": "marcus_feedback_history",
+              "value": "={{ ($json['Revision notes'] ? $json['Revision notes'] : '') + ($json.marcus_feedback_history ? '\\n---\\n' + $json.marcus_feedback_history : '') }}",
+              "type": "string"
+            },
+            {
+              "id": "fc4550f5-79e6-429f-ab20-0a334620c6ea",
+              "name": "feedback_taylor_to_marcus",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "d6ce9af9-d638-4630-b8d1-46293dbfccf3",
+      "name": "Marcus — Pass Feedback",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        16720,
+        4560
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "mic1",
+              "name": "marcus_revision_count",
+              "value": "={{ (parseInt($('Restore State — Marcus').item.json.marcus_revision_count) || 0) + 1 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "046b830a-e4b2-41fe-b101-163f2ab504df",
+      "name": "Marcus — Increment Counter",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        16928,
+        4560
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.marcus_revision_count }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              },
+              "rightValue": "={{ $('Config — Brand + Brief').item.json.max_revision_cycles || 3 }}",
+              "id": "abe01088-0189-490e-9783-1bdab7162147"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d6497fd5-da7d-4e19-9adb-43f649f5f51b",
+      "name": "Marcus — Check Limit",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        16560,
+        5216
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "me1",
+              "name": "final_status",
+              "value": "={{ 'Escalation Needed — Marcus exceeded ' + ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) + ' revision cycles' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8b0df366-e828-489d-9986-871fded0a9bf",
+      "name": "Marcus — Escalation",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        16864,
+        5216
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "mrs1",
+              "name": "feedback_marcus_to_sofia",
+              "value": "={{ $json['Rejection reason'] || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "mrs2",
+              "name": "final_status",
+              "value": "Rejected to Sofia — wrong angle",
+              "type": "string"
+            },
+            {
+              "id": "a0ab3bb2-f831-4d15-af62-be8100cd6cb8",
+              "name": "sofia_feedback_history",
+              "value": "={{ ($json['Rejection reason'] ? $json['Rejection reason'] : '') + ($json.sofia_feedback_history ? '\\n---\\n' + $json.sofia_feedback_history : '') }}",
+              "type": "string"
+            },
+            {
+              "id": "12a8beba-8259-435e-93cf-9544e6e4cebf",
+              "name": "marcus_revision_count",
+              "value": 0,
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "926049e5-439b-4bc3-9e14-aec14788c9d8",
+      "name": "Marcus — Rejected to Sofia",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        17424,
+        4688
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "sf1",
+              "name": "sofia_feedback_history",
+              "value": "={{ ($json['Revision notes'] ? $json['Revision notes'] : '') + ($json.sofia_feedback_history ? '\\n---\\n' + $json.sofia_feedback_history : '') }}",
+              "type": "string"
+            },
+            {
+              "id": "12e22f3d-fdf3-4507-8a8b-95f021bb0d2b",
+              "name": "rejected_angles",
+              "value": "={{ (($json.rejected_angles ? $json.rejected_angles + '\\n---\\n' : '') + ($json.sofia_angles || '')).slice(0, 6000) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "33b63e54-72c8-457c-bf89-cc24fdffae4c",
+      "name": "Sofia — Pass Feedback",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        15200,
+        4608
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ic1",
+              "name": "sofia_revision_count",
+              "value": "={{ (parseInt($('Restore State — Sofia').item.json.sofia_revision_count) || 0) + 1 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "8be4c5d4-8a30-47f2-9884-082881bff6be",
+      "name": "Sofia — Increment Counter",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        15392,
+        4608
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.sofia_revision_count }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              },
+              "rightValue": "={{ $('Config — Brand + Brief').item.json.max_revision_cycles || 3 }}",
+              "id": "6af63dad-1941-4b4f-b10c-44cb8202ccee"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "1a7d654b-00d9-4d59-a21e-29ad4502e349",
+      "name": "Sofia — Check Limit",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        15424,
+        5040
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e1",
+              "name": "final_status",
+              "value": "={{ 'Escalation Needed — Sofia exceeded ' + ($('Config — Brand + Brief').item.json.max_revision_cycles || 3) + ' revision cycles' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "61bf9d57-d812-4ed6-a755-0f44ee7306a3",
+      "name": "Sofia — Escalation",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        15968,
+        5168
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "355296b6-c6f5-41e6-9c4e-5916ced441eb",
+              "name": "rejection_reason",
+              "value": "={{ $json['Rejection reason'] || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "sbr-final-status-01",
+              "name": "final_status",
+              "value": "Rejected — out of scope",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "42f2c08c-cbe3-4d5b-b882-218318d08afe",
+      "name": "Sofia — Brief Rejected",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        15600,
+        4704
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "execution_id": "={{ $execution.id }}",
+            "timestamp": "={{ new Date().toISOString() }}",
+            "client": "={{ $('Config — Brand + Brief').item.json.client }}",
+            "platform": "={{ $('Config — Brand + Brief').item.json.platform }}",
+            "content_type": "={{ $('Config — Brand + Brief').item.json.content_type }}",
+            "approved_angle": "={{ $json.approved_angle }}",
+            "post_copy": "={{ $json.post_copy }}",
+            "visual_direction": "={{ $json.visual_direction }}",
+            "image_prompt": "={{ $json.image_prompt || '' }}",
+            "final_status": "={{ $json.final_status }}",
+            "approved_by": "={{ $json.approved_by }}",
+            "taylor_overall_score": "={{ $json.taylor_overall_score || 0 }}",
+            "taylor_recommendation": "={{ $json.taylor_recommendation || '' }}",
+            "taylor_summary": "={{ $json.taylor_summary || '' }}",
+            "taylor_flags": "={{ $json.taylor_flags || '' }}",
+            "taylor_scorecard": "={{ $json.taylor_scorecard || '' }}",
+            "sofia_revision_count": "={{ $json.sofia_revision_count || 0 }}",
+            "marcus_revision_count": "={{ $json.marcus_revision_count || 0 }}",
+            "sofia_feedback_history": "={{ $json.sofia_feedback_history || '' }}",
+            "marcus_feedback_history": "={{ $json.marcus_feedback_history || '' }}",
+            "taylor_feedback_history": "={{ $json.taylor_feedback_history || '' }}",
+            "escalation_needed": "={{ $json.final_status === ('Escalation Needed — Sofia exceeded ' + $('Config — Brand + Brief').item.json.max_revision_cycles + ' revision cycles') || $json.final_status === ('Escalation Needed — Marcus exceeded ' + $('Config — Brand + Brief').item.json.max_revision_cycles + ' revision cycles') ? $json.final_status : '' }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "execution_id",
+              "displayName": "execution_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "client",
+              "displayName": "client",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "platform",
+              "displayName": "platform",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "content_type",
+              "displayName": "content_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "approved_angle",
+              "displayName": "approved_angle",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "post_copy",
+              "displayName": "post_copy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "visual_direction",
+              "displayName": "visual_direction",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "image_prompt",
+              "displayName": "image_prompt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "final_status",
+              "displayName": "final_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "approved_by",
+              "displayName": "approved_by",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "taylor_overall_score",
+              "displayName": "taylor_overall_score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "taylor_recommendation",
+              "displayName": "taylor_recommendation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "taylor_summary",
+              "displayName": "taylor_summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "taylor_flags",
+              "displayName": "taylor_flags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "taylor_scorecard",
+              "displayName": "taylor_scorecard",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sofia_revision_count",
+              "displayName": "sofia_revision_count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "marcus_revision_count",
+              "displayName": "marcus_revision_count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sofia_feedback_history",
+              "displayName": "sofia_feedback_history",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "marcus_feedback_history",
+              "displayName": "marcus_feedback_history",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "taylor_feedback_history",
+              "displayName": "taylor_feedback_history",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "escalation_needed",
+              "displayName": "escalation_needed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        19504,
+        4368
+      ],
+      "id": "56f422a2-93b1-4b1b-bbd9-6a96c0c2e330",
+      "name": "Output — Log to Sheets",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3560c191-a483-4934-ab9a-fca5daef4559",
+              "name": "approved_angle",
+              "value": "={{ (() => { const selection = $json['Approved angle']; const angles = $('Restore State — Sofia').item.json.sofia_angles || ''; if (!selection || !angles) return selection; const map = { 'ANGLE 1': 1, 'ANGLE 2': 2, 'ANGLE 3': 3 }; const num = map[selection]; if (!num) return selection; const pattern = new RegExp('ANGLE ' + num + ':([\\\\s\\\\S]*?)(?=ANGLE ' + (num+1) + ':|$)'); const match = angles.match(pattern); return match ? match[1].trim() : selection; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "5e22d544-50ce-44f1-b32c-689653f4d2fe",
+              "name": "current_stage",
+              "value": "marcus",
+              "type": "string"
+            },
+            {
+              "id": "b3754053-27f8-4170-b4e6-ab43151d4ed4",
+              "name": "final_status",
+              "value": "angle_approved",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        15984,
+        4608
+      ],
+      "id": "c4899d21-55d2-4521-b223-42b29cef1d22",
+      "name": "Sofia — Save Approved Angle"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Config — Brand + Brief').item.json.client_email }}",
+        "subject": "={{ '✅ Post Approved — ' + $('Config — Brand + Brief').item.json.platform + ' | ' + $('Config — Brand + Brief').item.json.content_type + ' | ' + $('Config — Brand + Brief').item.json.client }}",
+        "message": "=<div style=\"font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #F3F4F6;\">    <div style=\"background: #5B4AE8; padding: 24px; border-radius: 8px 8px 0 0;\">     <h1 style=\"color: #FFFFFF; margin: 0; font-size: 20px;\">✅ Post Approved — Ready to Publish</h1>     <p style=\"color: #00D9C8; margin: 8px 0 0 0;\">{{ $('Config — Brand + Brief').item.json.client }} · {{ $('Config — Brand + Brief').item.json.platform }} · {{ $('Config — Brand + Brief').item.json.content_type }}</p>   </div>    <div style=\"background: #FFFFFF; padding: 24px; border-radius: 0 0 8px 8px;\">      <h2 style=\"color: #111827; font-size: 16px; margin-top: 0;\">📝 Approved Angle</h2>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px;\">{{ $json.approved_angle }}</p>      <h2 style=\"color: #111827; font-size: 16px;\">✍️ Post Copy</h2>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; white-space: pre-wrap;\">{{ $json.post_copy }}</p>      <h2 style=\"color: #111827; font-size: 16px;\">🎨 Visual Direction</h2>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px;\">{{ $json.visual_direction }}</p>      <h2 style=\"color: #111827; font-size: 16px;\">🖼️ Image Prompt</h2>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px;\">{{ $json.image_prompt || 'Not generated for this post.' }}</p>      <h2 style=\"color: #111827; font-size: 16px;\">📊 Quality Score</h2>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px;\">       <strong>Overall Score: {{ $json.taylor_overall_score }}/10</strong><br>       Recommendation: {{ $json.taylor_recommendation }}<br>       Summary: {{ $json.taylor_summary }}     </p>      <div style=\"margin-top: 24px; padding-top: 16px; border-top: 1px solid #E5E7EB;\">       <p style=\"color: #6B7280; font-size: 12px; margin: 0;\">         Approved by: {{ $json.approved_by }} · {{ $json.final_status }}<br>         Pipeline: {{ $json.sofia_revision_count }} Sofia revision(s) · {{ $json.marcus_revision_count }} Marcus revision(s)       </p>     </div>    </div>  </div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        19440,
+        4576
+      ],
+      "id": "f5442a4b-862b-4efe-a88a-b553a6610319",
+      "name": "Notify — Post Approved",
+      "webhookId": "2488b34b-4a50-4886-914d-1192115a182a"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Config — Brand + Brief').item.json.reviewer_email }}",
+        "subject": "={{ '🎯 Sofia Agent — Review Content Angles | ' + $('Config — Brand + Brief').item.json.client + ' · ' + $('Config — Brand + Brief').item.json.platform }}",
+        "message": "=<div style=\"font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #F3F4F6;\">    <div style=\"background: #5B4AE8; padding: 24px; border-radius: 8px 8px 0 0;\">     <h1 style=\"color: #FFFFFF; margin: 0; font-size: 18px;\">🎯 Sofia Agent generated 3 angles. Your review is needed.</h1>     <p style=\"color: #00D9C8; margin: 8px 0 0 0;\">{{ $('Config — Brand + Brief').item.json.client }} · {{ $('Config — Brand + Brief').item.json.platform }} · {{ $('Config — Brand + Brief').item.json.content_type }}</p>   </div>    <div style=\"background: #FFFFFF; padding: 24px; border-radius: 0 0 8px 8px;\">     <p style=\"color: #374151;\">Sofia has proposed 3 content angles for your review. Click the button below to approve or request revisions.</p>     <a href=\"{{ $execution.resumeFormUrl }}\" style=\"display: inline-block; background: #5B4AE8; color: #FFFFFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 8px;\">Review Content Angles →</a>     <p style=\"color: #6B7280; font-size: 12px; margin-top: 16px;\">Topic: {{ $('Config — Brand + Brief').item.json.topic_hint || '(none)' }}</p>   </div>  </div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        15504,
+        4368
+      ],
+      "id": "17cef6a1-f211-4ab6-bf38-a45983d0ad3f",
+      "name": "Notify — Sofia Review",
+      "webhookId": "e151ee51-98f1-4771-bc11-94ebe34b992f"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Config — Brand + Brief').item.json.reviewer_email }}",
+        "subject": "={{ '✍️ Marcus Agent — Review Post & Visual | ' + $('Config — Brand + Brief').item.json.client + ' · ' + $('Config — Brand + Brief').item.json.platform }}",
+        "message": "=<div style=\"font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #F3F4F6;\">    <div style=\"background: #FF5A1F; padding: 24px; border-radius: 8px 8px 0 0;\">     <h1 style=\"color: #FFFFFF; margin: 0; font-size: 18px;\">✍️ Marcus Agent created a post. Your review is needed.</h1>     <p style=\"color: #FFFFFF; margin: 8px 0 0 0; opacity: 0.9;\">{{ $('Config — Brand + Brief').item.json.client }} · {{ $('Config — Brand + Brief').item.json.platform }} · {{ $('Config — Brand + Brief').item.json.content_type }}</p>   </div>    <div style=\"background: #FFFFFF; padding: 24px; border-radius: 0 0 8px 8px;\">     <p style=\"color: #374151;\">Marcus has created a post and visual direction for your review. Click below to approve or request changes.</p>      <h3 style=\"color: #111827; font-size: 14px;\">📝 Approved Angle</h3>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; font-size: 13px;\">{{ $('Sofia — Save Approved Angle').item.json.approved_angle }}</p>      <a href=\"{{ $execution.resumeFormUrl }}\" style=\"display: inline-block; background: #FF5A1F; color: #FFFFFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 8px;\">Review Post & Visual →</a>   </div>  </div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        16880,
+        4240
+      ],
+      "id": "effc44f2-d3e7-4216-8993-0e8feca16e12",
+      "name": "Notify — Marcus Review",
+      "webhookId": "b2c22eb7-b7b1-42fd-bea9-e50b135f730a"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Config — Brand + Brief').item.json.reviewer_email }}",
+        "subject": "={{ '🔍 Taylor Agent — Final Quality Review | ' + $('Config — Brand + Brief').item.json.client + ' · ' + $('Config — Brand + Brief').item.json.platform }}",
+        "message": "=<div style=\"font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #F3F4F6;\">    <div style=\"background: #111827; padding: 24px; border-radius: 8px 8px 0 0;\">     <h1 style=\"color: #FFFFFF; margin: 0; font-size: 18px;\">🔍 Taylor Agent completed the quality check. Your decision is needed.</h1>     <p style=\"color: #00D9C8; margin: 8px 0 0 0;\">{{ $('Config — Brand + Brief').item.json.client }} · {{ $('Config — Brand + Brief').item.json.platform }} · {{ $('Config — Brand + Brief').item.json.content_type }}</p>   </div>    <div style=\"background: #FFFFFF; padding: 24px; border-radius: 0 0 8px 8px;\">     <p style=\"color: #374151;\">Taylor has completed the quality review. See the scorecard below and make your final decision.</p>      <h3 style=\"color: #111827; font-size: 14px;\">📊 Overall Score</h3>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px;\">       <strong>{{ $json.taylor_overall_score }}/10</strong> — {{ $json.taylor_recommendation }}     </p>      <h3 style=\"color: #111827; font-size: 14px;\">📋 Summary</h3>     <p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; font-size: 13px;\">{{ $json.taylor_summary }}</p>      <a href=\"{{ $execution.resumeFormUrl }}\" style=\"display: inline-block; background: #111827; color: #FFFFFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 8px;\">Make Final Decision →</a>   </div>  </div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        18304,
+        4368
+      ],
+      "id": "0eda7e06-d933-44a6-969d-57be5eedd035",
+      "name": "Notify — Taylor Review",
+      "webhookId": "1d540a81-ddaf-4b7c-a27e-327e59c23f2c"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Config — Brand + Brief').item.json.escalation_email }}",
+        "subject": "={{ '🚨 Escalation — Sofia · ' + $('Config — Brand + Brief').item.json.client + ' · ' + $('Config — Brand + Brief').item.json.platform }}",
+        "message": "=<div style=\"font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #F3F4F6;\"><div style=\"background: #111827; padding: 24px; border-radius: 8px 8px 0 0;\"><h1 style=\"color: #FFFFFF; margin: 0; font-size: 18px;\">🚨 Escalation — Sofia exceeded {{ $('Config — Brand + Brief').item.json.max_revision_cycles || 3 }} revision cycles</h1><p style=\"color: #00D9C8; margin: 8px 0 0 0;\">{{ $('Config — Brand + Brief').item.json.client }} · {{ $('Config — Brand + Brief').item.json.platform }} · {{ $('Config — Brand + Brief').item.json.content_type }}</p></div><div style=\"background: #FFFFFF; padding: 24px; border-radius: 0 0 8px 8px;\"><p style=\"color: #374151;\">Sofia was unable to produce an approved angle after {{ $('Config — Brand + Brief').item.json.max_revision_cycles || 3 }} revision cycles. Manual intervention is required.</p><h3 style=\"color: #111827; font-size: 14px;\">📋 Revision History</h3><p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; font-size: 13px;\">{{ $json.sofia_feedback_history || '(no feedback recorded)' }}</p></div></div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        15520,
+        5200
+      ],
+      "id": "8acb10a2-6c28-49f5-a556-693ca22f1603",
+      "name": "Notify — Sofia Escalation",
+      "webhookId": "84a6b26f-38b5-4ebb-ab18-4ab9a3d8b641"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Config — Brand + Brief').item.json.escalation_email }}",
+        "subject": "={{ '🚨 Escalation — Marcus · ' + $('Config — Brand + Brief').item.json.client + ' · ' + $('Config — Brand + Brief').item.json.platform }}",
+        "message": "=<div style=\"font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #F3F4F6;\"><div style=\"background: #111827; padding: 24px; border-radius: 8px 8px 0 0;\"><h1 style=\"color: #FFFFFF; margin: 0; font-size: 18px;\">🚨 Escalation — Marcus exceeded {{ $('Config — Brand + Brief').item.json.max_revision_cycles || 3 }} revision cycles</h1><p style=\"color: #00D9C8; margin: 8px 0 0 0;\">{{ $('Config — Brand + Brief').item.json.client }} · {{ $('Config — Brand + Brief').item.json.platform }} · {{ $('Config — Brand + Brief').item.json.content_type }}</p></div><div style=\"background: #FFFFFF; padding: 24px; border-radius: 0 0 8px 8px;\"><p style=\"color: #374151;\">Marcus was unable to produce approved copy after {{ $('Config — Brand + Brief').item.json.max_revision_cycles || 3 }} revision cycles. Manual intervention is required.</p><h3 style=\"color: #111827; font-size: 14px;\">📝 Approved Angle</h3><p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; font-size: 13px;\">{{ $('Sofia — Save Approved Angle').item.json.approved_angle }}</p><h3 style=\"color: #111827; font-size: 14px;\">📋 Revision History</h3><p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; font-size: 13px;\">{{ $json.marcus_feedback_history || '(no feedback recorded)' }}</p></div></div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        17104,
+        5344
+      ],
+      "id": "27a67de1-f696-419a-bf77-72373d673a0d",
+      "name": "Notify — Marcus Escalation",
+      "webhookId": "953bc45f-5362-4be0-a300-fb543785c8e6"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Config — Brand + Brief').item.json.manager_email }}",
+        "subject": "={{ '❌ Brief Rejected — ' + $('Config — Brand + Brief').item.json.client + ' · ' + $('Config — Brand + Brief').item.json.platform }}",
+        "message": "=<div style=\"font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #F3F4F6;\"><div style=\"background: #111827; padding: 24px; border-radius: 8px 8px 0 0;\"><h1 style=\"color: #FFFFFF; margin: 0; font-size: 18px;\">❌ Brief Rejected — Out of Scope</h1><p style=\"color: #00D9C8; margin: 8px 0 0 0;\">{{ $('Config — Brand + Brief').item.json.client }} · {{ $('Config — Brand + Brief').item.json.platform }} · {{ $('Config — Brand + Brief').item.json.content_type }}</p></div><div style=\"background: #FFFFFF; padding: 24px; border-radius: 0 0 8px 8px;\"><p style=\"color: #374151;\">The content brief was rejected as out of scope at the Sofia strategy stage. No further action will be taken.</p><h3 style=\"color: #111827; font-size: 14px;\">📋 Topic Hint</h3><p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; font-size: 13px;\">{{ $('Config — Brand + Brief').item.json.topic_hint || '(none)' }}</p></div></div><h3 style=\"color: #111827; font-size: 14px;\">❌ Rejection Reason</h3>\n<p style=\"color: #374151; background: #F3F4F6; padding: 12px; border-radius: 6px; font-size: 13px;\">{{ $json['Rejection reason'] || '(no reason provided)' }}</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        15792,
+        4704
+      ],
+      "id": "9dcfa3e0-3daf-4206-acc3-1e8bb78275e7",
+      "name": "Notify — Brief Rejected",
+      "webhookId": "144bdcc7-19fc-4660-9671-01ce54b060e6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "rss1",
+              "name": "sofia_revision_count",
+              "value": "={{ $('Sofia — Save Angles').item.json.sofia_revision_count || 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "rss2",
+              "name": "sofia_feedback_history",
+              "value": "={{ $('Sofia — Save Angles').item.json.sofia_feedback_history || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rss3",
+              "name": "feedback_taylor_to_sofia",
+              "value": "={{ $('Sofia — Save Angles').item.json.feedback_taylor_to_sofia || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rss4",
+              "name": "rejected_angles",
+              "value": "={{ $('Sofia — Save Angles').item.json.rejected_angles || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rss5",
+              "name": "sofia_angles",
+              "value": "={{ $('Sofia — Save Angles').item.json.sofia_angles || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rss6",
+              "name": "client",
+              "value": "={{ $('Config — Brand + Brief').item.json.client }}",
+              "type": "string"
+            },
+            {
+              "id": "rss7",
+              "name": "platform",
+              "value": "={{ $('Config — Brand + Brief').item.json.platform }}",
+              "type": "string"
+            },
+            {
+              "id": "rss8",
+              "name": "content_type",
+              "value": "={{ $('Config — Brand + Brief').item.json.content_type }}",
+              "type": "string"
+            },
+            {
+              "id": "rss9",
+              "name": "topic_hint",
+              "value": "={{ $('Config — Brand + Brief').item.json.topic_hint || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rss10",
+              "name": "tone_note",
+              "value": "={{ $('Config — Brand + Brief').item.json.tone_note || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rs-sofia-approved-angle",
+              "name": "approved_angle",
+              "value": "={{ (() => { try { return $('Sofia — Save Approved Angle').item.json.approved_angle || ''; } catch(e) { return ''; } })() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "bf9b06f6-c7db-4e93-839e-48c9337e9d65",
+      "name": "Restore State — Sofia",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        15616,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "rsm1",
+              "name": "marcus_revision_count",
+              "value": "={{ $('Marcus — Save Output').item.json.marcus_revision_count || 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "rsm2",
+              "name": "marcus_feedback_history",
+              "value": "={{ $('Marcus — Save Output').item.json.marcus_feedback_history || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rsm3",
+              "name": "feedback_taylor_to_marcus",
+              "value": "={{ $('Marcus — Save Output').item.json.feedback_taylor_to_marcus || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rsm4",
+              "name": "post_copy",
+              "value": "={{ $('Marcus — Save Output').item.json.post_copy || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rsm5",
+              "name": "visual_direction",
+              "value": "={{ $('Marcus — Save Output').item.json.visual_direction || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rsm6",
+              "name": "image_prompt",
+              "value": "={{ $('Marcus — Save Output').item.json.image_prompt || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rsm7",
+              "name": "approved_angle",
+              "value": "={{ $('Sofia — Save Approved Angle').item.json.approved_angle || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rsm8",
+              "name": "taylor_feedback_history",
+              "value": "={{ $('Marcus — Save Output').item.json.taylor_feedback_history || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "a1a10554-ebef-4251-9a24-1d2f571c6017",
+      "name": "Restore State — Marcus",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        17024,
+        4240
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "rst1",
+              "name": "sofia_revision_count",
+              "value": "={{ (() => { try { return $('Sofia — Increment Counter').item.json.sofia_revision_count || 0; } catch(e) { return $('Config — Brand + Brief').item.json.sofia_revision_count || 0; } })() }}",
+              "type": "number"
+            },
+            {
+              "id": "rst2",
+              "name": "marcus_revision_count",
+              "value": "={{ (() => { try { return $('Marcus — Increment Counter').item.json.marcus_revision_count || 0; } catch(e) { try { return $('Marcus — Save Output').item.json.marcus_revision_count || 0; } catch(e2) { return 0; } } })() }}",
+              "type": "number"
+            },
+            {
+              "id": "rst3",
+              "name": "taylor_feedback_history",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_feedback_history || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst4",
+              "name": "marcus_feedback_history",
+              "value": "={{ $('Marcus — Save Output').item.json.marcus_feedback_history || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst5",
+              "name": "post_copy",
+              "value": "={{ $('Marcus — Save Output').item.json.post_copy || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst6",
+              "name": "visual_direction",
+              "value": "={{ $('Marcus — Save Output').item.json.visual_direction || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst7",
+              "name": "taylor_summary",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_summary || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst8",
+              "name": "taylor_scorecard",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_scorecard || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst9",
+              "name": "taylor_flags",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_flags || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst10",
+              "name": "taylor_recommendation",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_recommendation || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "rst11",
+              "name": "taylor_overall_score",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_overall_score || 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "rst13",
+              "name": "taylor_revision_count",
+              "value": "={{ (() => { try { return $('Taylor — Pass to Marcus').item.json.taylor_revision_count || 0; } catch(e) { return 0; } })() }}",
+              "type": "number"
+            },
+            {
+              "id": "rst12",
+              "name": "taylor_flags_readable",
+              "value": "={{ $('Taylor — Save Review').item.json.taylor_flags_readable || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "4f90dabb-7d3a-4f3e-baea-1d3eeaf12d6a",
+      "name": "Restore State — Taylor",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        18432,
+        4368
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.taylor_revision_count }}",
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              },
+              "rightValue": "={{ $('Config — Brand + Brief').item.json.max_revision_cycles || 3 }}",
+              "id": "7d2c4e1a-3b5f-4c8d-9e0a-1f2b3c4d5e6f"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b7e3f2a1-9c4d-4e8b-a1f0-2d3c4b5a6e7f",
+      "name": "Taylor — Check Limit",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        17856,
+        4992
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Brief Intake Form": {
+      "main": [
+        [
+          {
+            "node": "Config — Brand + Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config — Brand + Brief": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Research Agent": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Save Angles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI — Sofia": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Sofia — Research Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Save Angles": {
+      "main": [
+        [
+          {
+            "node": "Notify — Sofia Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Approve Angle": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Route Decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Route Decision": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Save Approved Angle",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sofia — Pass Feedback",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sofia — Brief Rejected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Creative Agent": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Save Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI — Marcus": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Marcus — Creative Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Save Output": {
+      "main": [
+        [
+          {
+            "node": "Notify — Marcus Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Review Post": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Route Decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Route Decision": {
+      "main": [
+        [
+          {
+            "node": "Taylor — Review Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marcus — Pass Feedback",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marcus — Rejected to Sofia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taylor — Review Agent": {
+      "main": [
+        [
+          {
+            "node": "Taylor — Save Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI — Taylor": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Taylor — Review Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taylor — Save Review": {
+      "main": [
+        [
+          {
+            "node": "Notify — Taylor Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taylor — Final Decision": {
+      "main": [
+        [
+          {
+            "node": "Taylor — Route Decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taylor — Route Decision": {
+      "main": [
+        [
+          {
+            "node": "Output — Ready to Publish",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Taylor — Pass to Marcus",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Taylor — Reject to Sofia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Output — Ready to Publish": {
+      "main": [
+        [
+          {
+            "node": "Output — Log to Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify — Post Approved",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taylor — Pass to Marcus": {
+      "main": [
+        [
+          {
+            "node": "Taylor — Check Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taylor — Reject to Sofia": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Pass Feedback": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Increment Counter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Increment Counter": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Check Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Check Limit": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Escalation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marcus — Creative Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Escalation": {
+      "main": [
+        [
+          {
+            "node": "Output — Log to Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify — Marcus Escalation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcus — Rejected to Sofia": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Pass Feedback": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Increment Counter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Increment Counter": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Check Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Check Limit": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Escalation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sofia — Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Escalation": {
+      "main": [
+        [
+          {
+            "node": "Output — Log to Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify — Sofia Escalation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Brief Rejected": {
+      "main": [
+        [
+          {
+            "node": "Output — Log to Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify — Brief Rejected",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sofia — Save Approved Angle": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Creative Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify — Sofia Review": {
+      "main": [
+        [
+          {
+            "node": "Restore State — Sofia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore State — Sofia": {
+      "main": [
+        [
+          {
+            "node": "Sofia — Approve Angle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify — Marcus Review": {
+      "main": [
+        [
+          {
+            "node": "Restore State — Marcus",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore State — Marcus": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Review Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify — Taylor Review": {
+      "main": [
+        [
+          {
+            "node": "Restore State — Taylor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore State — Taylor": {
+      "main": [
+        [
+          {
+            "node": "Taylor — Final Decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Taylor — Check Limit": {
+      "main": [
+        [
+          {
+            "node": "Marcus — Escalation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marcus — Creative Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "tags": []
+}
